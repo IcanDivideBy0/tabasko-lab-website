@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include ../partials/head.ejs %>
+  </head>
+  <body>
+    <% if (env.NODE_ENV === 'development') { %>
+      <h1><%= status %> - <%= statusMessage %></h1>
+      <p><%= error.message %></p>
+      <pre><%= error.stack %></pre>
+    <% } else { %>
+      <h1>An error occured.</h1>
+    <% } %>
+  </body>
+</html>

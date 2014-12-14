@@ -1,0 +1,88 @@
+
+body {
+  background-image: url("/images/bg_page.jpg");
+}
+
+.main-container {
+  padding-top: 64px;
+  height: 100%;
+}
+
+.main-container > md-toolbar {
+  position: fixed;
+  top: 0;
+
+  .md-header {
+    height: 64px;
+
+    md-tab:focus {
+      border-color: transparent;
+
+      md-tab-label {
+        color: #fff;
+      }
+    }
+  }
+}
+
+.main-container > md-content {
+  height: 100%;
+  overflow-x: hidden;
+  padding: 16px 0 0;
+
+  & > [ui-view] {
+    max-width: 800px;
+    margin: auto;
+
+    & > md-content {
+      margin-bottom: 16px;
+    }
+  }
+
+  & > [ui-view].ng-enter,
+  & > [ui-view].ng-leave {
+    @include transition(all .5s ease-in-out);
+    position: relative;
+  }
+
+  & > [ui-view].ng-enter-active,
+  & > [ui-view].ng-leave-active {
+    height: 0;
+  }
+
+  &.animate-forward {
+    & > [ui-view].ng-enter {
+      right: -100%;
+    }
+
+    & > [ui-view].ng-enter-active {
+      right: 0;
+    }
+
+    & > [ui-view].ng-leave {
+      left: 0;
+    }
+
+    & > [ui-view].ng-leave-active {
+      left: -100%;
+    }
+  }
+
+  &.animate-backward {
+    & > [ui-view].ng-enter {
+      left: -100%;
+    }
+
+    & > [ui-view].ng-enter-active {
+      left: 0;
+    }
+
+    & > [ui-view].ng-leave {
+      right: 0;
+    }
+
+    & > [ui-view].ng-leave-active {
+      right: -100%;
+    }
+  }
+}

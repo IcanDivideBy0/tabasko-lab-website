@@ -1,0 +1,42 @@
+<div class="main-container" layout="column" md-theme="red">
+  <md-toolbar class="md-whiteframe-z2" layout="row">
+    <md-button ng-click="$mdSidenav('sidenav').toggle()" xhide-gt-sm="" aria-label="Toggle Menu">
+      <md-icon icon="/images/icons/navigation/svg/design/ic_menu_24px.svg"></md-icon>
+    </md-button>
+
+    <h2 class="md-toolbar-tools" flex>
+      <span>Tabasko Lab</span>
+    </h2>
+
+    <div flex hide-sm="">
+      <md-tabs md-selected="currentStateIndex">
+        <md-tab ng-repeat="item in menu"
+         ui-sref="{{item.stateName}}"
+         label="{{item.label}}"></md-tab>
+      </md-tabs>
+    </div>
+  </md-toolbar>
+
+  <md-sidenav
+  class="md-sidenav-left md-locked-open md-whiteframe-z2"
+  md-component-id="sidenav"
+  md-theme="green">
+    <md-toolbar layout="row">
+      <h2 class="md-toolbar-tools" flex="80">Menu</h2>
+      <md-button class="md-toolbar-tools" ng-click="$mdSidenav('sidenav').close()" aria-label="Close Menu">
+        <md-icon icon="/images/icons/navigation/svg/design/ic_close_24px.svg"></md-icon>
+      </md-button>
+    </md-toolbar>
+    <md-button ng-repeat="item in menu"
+     class="md-toolbar-tools"
+     ng-click="$mdSidenav('sidenav').close()"
+     ui-sref="{{item.stateName}}"
+     ui-sref-active="active"
+     aria-label="{{item.label}}"
+     ng-bind="item.label"></md-button>
+  </md-sidenav>
+
+  <md-content class="animate-{{slideDirection}}">
+    <div ui-view></div>
+  </md-content>
+</div>

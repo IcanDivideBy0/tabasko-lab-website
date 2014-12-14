@@ -1,0 +1,15 @@
+
+.menu-icon {
+  background: none;
+  border: none;
+}
+
+.md-sidenav-left {
+  button {
+    border-radius: 0 !important;
+
+    &.active {
+      border-left: 2px solid #4caf50;
+    }
+  }
+}
