@@ -9,7 +9,7 @@
     </h2>
 
     <div flex hide-sm="">
-      <md-tabs md-selected="currentStateIndex">
+      <md-tabs md-selected="currentState.index">
         <md-tab ng-repeat="item in menu"
          ui-sref="{{item.stateName}}"
          label="{{item.label}}"></md-tab>

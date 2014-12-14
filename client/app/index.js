@@ -37,6 +37,7 @@ angular
   function ($rootScope, $scope, $timeout, $state, $mdSidenav) {
     $scope.$state = $state;
     $scope.$mdSidenav = $mdSidenav;
+    $scope.currentState = {};
 
     $scope.menu = [
       { stateName: 'root.home', label: 'Home' },
@@ -70,7 +71,7 @@ angular
     );
 
     $rootScope.$on('$stateChangeSuccess', function updateCurrentStateIndex() {
-      $scope.currentStateIndex = _.findIndex($scope.menu, function (menuEntry) {
+      $scope.currentState.index = _.findIndex($scope.menu, function (menuEntry) {
         return $state.includes(menuEntry.stateName);
       });
     });
